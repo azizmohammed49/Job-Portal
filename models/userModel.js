@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema(
     password: { type: String, required: true },
     role: {
       type: String,
-      enum: ["ADMIN", "EMPLOYER", "APPLICANT"],
+      enum: ["ADMIN", "EMPLOYER", "CANDIDATE", "APPLICANT"],
       default: "APPLICANT",
     },
     isActive: { type: Boolean, default: true },
@@ -33,4 +33,4 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-export default mongoose.model("Users", userSchema);
+export default mongoose.model("users", userSchema);
